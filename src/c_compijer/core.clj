@@ -1,6 +1,12 @@
 (ns c-compijer.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main [& args]
+  (when-not (seq args)
+    (binding [*out* *err*]
+      (println "Usage: c-compijer <code>"))
+    (System/exit 1))
+  (println ".intel_syntax noprefix")
+  (println ".global main")
+  (println "main:")
+  (println (str "  mov rax, " (nth args 0)))
+  (println "  ret"))
