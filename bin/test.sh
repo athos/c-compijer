@@ -3,7 +3,7 @@
 try() {
     expected="$1"
     input="$2"
-    clojure -m c-compijer.core "$input" > tmp.s
+    clojure -m c-compijer.main "$input" > tmp.s
     gcc -static -o tmp tmp.s
     ./tmp
     actual="$?"

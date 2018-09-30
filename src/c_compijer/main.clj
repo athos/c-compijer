@@ -1,4 +1,4 @@
-(ns c-compijer.core)
+(ns c-compijer.main)
 
 (defn -main [& args]
   (when-not (seq args)
